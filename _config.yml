@@ -1,8 +1,6 @@
 title: Slacker News
 email: your-email@example.com
 description: A simple blog about things worth reading.
-baseurl: "slacker-news"
-url: "https://hackclub.github.io/"
 
 permalink: /:slug/
 
