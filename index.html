@@ -1,0 +1,50 @@
+---
+layout: default
+title: Front Page
+---
+
+<div class="newspaper-front">
+
+  <div class="front-top">
+
+    <!-- Headline block (left) -->
+    {% assign headline = site.posts | where: "slug", site.data.frontpage.headline | first %}
+    {% if headline %}
+    <a href="{{ headline.url | relative_url }}" class="front-block headline-block">
+      <h2 class="block-headline">{{ headline.title }}</h2>
+      <hr class="block-rule">
+      <p class="block-excerpt">{{ headline.excerpt | strip_html | truncatewords: 55 }}</p>
+    </a>
+    {% endif %}
+
+    <!-- Opinion column (right) -->
+    <div class="front-block opinion-block">
+      <div class="section-label">OPINION</div>
+      <hr class="block-rule">
+      {% for slug in site.data.frontpage.opinion %}
+        {% assign post = site.posts | where: "slug", slug | first %}
+        {% if post %}
+        <a href="{{ post.url | relative_url }}" class="opinion-item">
+          <h3 class="opinion-title">{{ post.title }}</h3>
+          <p class="opinion-excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
+        </a>
+        {% unless forloop.last %}<hr class="opinion-divider">{% endunless %}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div><!-- /.front-top -->
+
+  <div class="front-bottom">
+    {% for slug in site.data.frontpage.stories %}
+      {% assign post = site.posts | where: "slug", slug | first %}
+      {% if post %}
+      <a href="{{ post.url | relative_url }}" class="front-block story-block">
+        <h3 class="story-block-title">{{ post.title }}</h3>
+        <p class="story-block-excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
+      </a>
+      {% endif %}
+    {% endfor %}
+  </div><!-- /.front-bottom -->
+
+</div><!-- /.newspaper-front -->

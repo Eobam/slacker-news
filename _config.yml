@@ -1,0 +1,13 @@
+title: Slacker News
+email: your-email@example.com
+description: A simple blog about things worth reading.
+baseurl: ""
+url: ""
+
+permalink: /:slug/
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
