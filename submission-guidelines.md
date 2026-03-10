@@ -51,7 +51,7 @@ permalink: /submissions/
 
 **How to Submit**
 
-Draft a gdoc and share it with eps@hackclub.com. If we note changes or leave comments, you need to address those before you can be published.
+Draft a Google doc and share it with eps@hackclub.com. If we note changes or leave comments, you need to address those before you can be published.
 
 This process will likely change later.
 
