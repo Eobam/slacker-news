@@ -54,7 +54,7 @@ Channels like #meta and #community-logs are a window onto this future. They have
 
 Drama begets drama. People get mad at each other, causing them to do bad things, which people then get mad about. For HQ and the FD, drama leads to misconduct, which leads to more enforcement, which leads to more drama. Also, people love drama. Can you imagine a reality TV show where all of the characters handled their problems with respectful discussion?
 
-Drama also creates rival factions. Some drama happens, and forevermore, everyone who was involved remembers who was on which side of The Hairdryer Incident
+Drama also creates rival factions. Some drama happens, and forevermore, everyone sinvolved remembers who was on which side of The Hairdryer Incident.
 
 Rival factions are destructive to the systems they inhabit. When people identify with their own faction rather than the system as whole, their perceived self-interest is to serve their faction at the expense of the system. It becomes rational to make the system 100 points worse as long as your faction comes out 10 points ahead.
 
@@ -85,18 +85,18 @@ Everyone who has been here a long time has told me about how great the Slack use
 
 ![#lounge 3 years ago](https://cdn.hackclub.com/019cd544-5886-7dba-986f-2e8bb51fe08b/screenshot_2026-02-20_at_2.33.54___pm.png)
 
-It isn’t cherry-picked. I just chose the date, and this came up. I see two fun, wholesome technical conversations; one Hack Clubber helping another to solve a technical problem; and a discussion about why Hack Club was giving people certificates which ends with understanding rather than bitterness.
+This isn’t cherry-picked. I just chose the date, and this came up. I see two fun, wholesome technical conversations; one Hack Clubber helping another to solve a technical problem; and a someone questioning an HQ decision and walking away satisfied rather than bitter.
 
 What would this third future look like? We can’t go back to the past, not really. But we can have some of what made that past so special. This can be a place to learn, a place to create, and a place to belong. It is possible. The Town Garden is a place where people welcome each other, help each other, work through their disagreements, and walk out as better hackers, better friends, and better people. This last point is, I think, a hugely neglected part of modern childhood–you are surrounded by conflicting advice about how to be successful, but there is far less guidance on how to be human.
 
 
 **Is the Town Garden an Attractor State?**
 
-I believe it can be. The Hacker Values largely boil down to “help others, and make every conflict productive”. If everyone adopted those–as values, not just as rules–then unproductive conflict wouldn’t just get punished by the fire department. It would be low status. It would be cringe. Helping people, on the other hand, would be high status.
+I believe it can be. The Hacker Values largely boil down to “help others, and make every conflict productive”. If everyone adopted those–as values, not just as rules–then unproductive conflict wouldn’t just get punished by the fire department. It would be low-status. It would be cringe. Helping people, on the other hand, would be high-status.
 
 
 **You Decide**
 
-I’ve spelled out my guiding philosophy. I’m trying to make the Slack into the Town Garden. But I don’t actually know how to create it. Broadly, I think it involves people choosing freely to follow Hacker Values. But even though you can just do things, you can’t just do that. I’ll be trying lots of experiments in pursuit of this goal, and I hope you’ll join me.
+I’ve spelled out my guiding philosophy. I’m trying to make the Slack into the Town Garden. But I don’t actually know how to create it. Broadly, I think it involves people choosing freely to follow Hacker Values. I’ll be trying lots of experiments in pursuit of this goal, and I hope you’ll join me.
 
-Because ultimately, the future of the Slack is in your hands. You are the incumbents, and you have tremendous power in shaping the experience of newcomers. Every day, you can choose conflict, apathy, or co-operation. And the weight of your choices will accumulate into a future for the Slack. You decide which one.
+Ultimately, the future of the Slack is in your hands. You are the incumbents, and you have tremendous power in shaping the experience of newcomers. Every day, you can choose conflict, apathy, or co-operation. And the weight of your choices will accumulate into a future for the Slack. You decide which one.
