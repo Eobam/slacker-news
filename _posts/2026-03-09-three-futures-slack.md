@@ -75,7 +75,7 @@ So: the Slack can be defined by conflict, but doesn’t have to be. And the Slac
 
 Everyone who has been here a long time has told me about how great the Slack used to be. Here is a day in #lounge from 3 years ago:
 
-**insert image here**
+![#lounge 3 years ago](https://cdn.hackclub.com/019cd544-5886-7dba-986f-2e8bb51fe08b/screenshot_2026-02-20_at_2.33.54___pm.png)
 
 It isn’t cherry-picked. I just chose the date, and this came up. I see two fun, wholesome technical conversations; one Hack Clubber helping another to solve a technical problem; and a discussion about why Hack Club was giving people certificates which ends with understanding rather than bitterness.
 
