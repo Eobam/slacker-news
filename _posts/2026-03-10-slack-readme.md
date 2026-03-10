@@ -6,8 +6,11 @@ author: '@Eternal'
 ---
 Hack Club is a massive org. And yet, there are no guides for newcomers to read. They're plopped in the Slack and left to fend for themselves. 
  
-Readme was started by @neven. Readme serves as an introduction to Hack Club that covers everything from YSWS programs to Nest and the 2 smitten lovebirds that are Orpheus and Heidi.
-
-Readme will be deployed to slack.hackclub.com as part of the onboarding flow there. It will also be incorporated into a forthcoming Slack-side tutorial developed in collaboration by several Community Team leads.
+Hex-4 also had this frustration and started Readme (a guide to Hack Club) but left it unfinished. In early February, I asked about creating a guide to Hack Club where I was told about the existence of Readme. Seeing it unfinished, I decided to pick up where Hex-4 left off.
+ 
+Writing Readme turned into a bit of a rabbit hole. I asked a lot of questions in #hq and #community and did a lot of Googling. The page about Hack Club macots and lore was even harder to write with the lore being scattered and all. I wasn't sure where to start reading. That part is being handed off to future-me. 
+Writing Readme turned into a bit of a rabbit hole. I asked a lot of questions in #hq and #community and did a lot of Googling. The page about Hack Club macots and lore was even harder to write with the lore being scattered and all. I wasn't sure where to start reading. That part is being handed off to future-me. 
+ 
+Readme lays out Hack Club like a book. It covers topics like how to make threads in Slack, what YSWS programs are, the 2 lovebirds that are Orpheus and Heidi and generally points the reader in the right direction to provide a smoother introduction into Hack Club. Readme lays out Hack Club like a book. It covers topics like how to make threads in Slack, what YSWS programs are, the 2 lovebirds that are Orpheus and Heidi and generally points the reader in the right direction to provide a smoother introduction into Hack Club.
 
 [You can read it here](https://eofreternal.github.io/readme/slack/).
