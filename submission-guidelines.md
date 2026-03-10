@@ -13,6 +13,7 @@ permalink: /submissions/
 **Editorials**
 
 1. Novelty
+
     Submissions should either:
 
     A. Make a new contribution to a subject already raised by a previous editorial
@@ -20,6 +21,7 @@ permalink: /submissions/
     B. Raise a subject not covered by a previous editorial
 
 2. Quality
+
     Submissions should:
 
     A. Show epistemic humility. This means being honest about the limits of what they know, and allowing the possibility that they are mistaken
@@ -27,6 +29,7 @@ permalink: /submissions/
     B. Be carefully fact-checked
 
 3. Civility
+
     Submissions should not:
 
     A. Accuse community members of bad faith
