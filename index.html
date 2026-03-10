@@ -34,7 +34,17 @@ layout: default
 
   </div><!-- /.front-top -->
 
+  {% assign story_count = 0 %}
+  {% for slug in site.data.frontpage.stories %}
+    {% assign post = site.posts | where: "slug", slug | first %}
+    {% if post %}{% assign story_count = story_count | plus: 1 %}{% endif %}
+  {% endfor %}
+
+  {% if story_count < 4 %}
+  <div class="front-bottom" style="grid-template-columns: repeat({{ story_count }}, 1fr);">
+  {% else %}
   <div class="front-bottom">
+  {% endif %}
     {% for slug in site.data.frontpage.stories %}
       {% assign post = site.posts | where: "slug", slug | first %}
       {% if post %}

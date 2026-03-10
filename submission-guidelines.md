@@ -1,0 +1,33 @@
+---
+layout: page
+title: Submissions
+permalink: /submissions/
+---
+
+**News Guidelines**
+1. News stories should be purely factual, rather than speculative or opinionated
+2. Authors should fact-check their submissions
+3. Rumors and hearsay should be distinguished from observed facts and statements directly from the relevant parties
+
+**Editorial Guidelines**
+
+1. Novelty
+    Submissions should either:
+        A. Make a new contribution to a subject already raised by a previous editorial
+        B. Raise a subject not covered by a previous editorial
+2. Quality
+    Submissions should:
+        A. Show epistemic humility. This means being honest about the limits of what they know, and allowing the possibility that they are mistaken
+        B. Be carefully fact-checked
+3. Civility
+    Submissions should not:
+        A. Accuse community members of bad faith
+        B. Reveal sensitive information about people, including private communications, without their consent
+        C. Violate the code of conduct
+4. Format
+        A. 200-2000 words
+        B. MUST be in Comic Sans or Papyrus
+
+**Ad Guidelines**
+1. Ads should be short
+2. Ads are more likely to be accepted if they are advertising something done for the benefit of the Hack Club community
