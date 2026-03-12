@@ -41,7 +41,7 @@ layout: default
   {% endfor %}
 
   {% if story_count < 4 %}
-  <div class="front-bottom" style="grid-template-columns: repeat({{ story_count }}, 1fr);">
+  <div class="front-bottom front-bottom--{{ story_count }}">
   {% else %}
   <div class="front-bottom">
   {% endif %}

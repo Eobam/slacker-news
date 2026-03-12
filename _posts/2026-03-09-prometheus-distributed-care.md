@@ -47,7 +47,7 @@ When you join a channel, channel managers can now set a custom welcome message t
 
 **Manager**
 
-Yes, you can finally change the manager on your profile now! Run /pro manager to add someone to your profile. Groundbreaking, I know.
+Yes, you can finally change the manager on your profile now! Run `/pro manager` to add someone to your profile. Groundbreaking, I know.
 
 
 **How do I use it?**

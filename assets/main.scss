@@ -81,6 +81,9 @@ a {
   }
   .nav-pip {
     color: #999;
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
   }
 }
 
@@ -106,6 +109,10 @@ a {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+
+  &--1 { grid-template-columns: 1fr; }
+  &--2 { grid-template-columns: repeat(2, 1fr); }
+  &--3 { grid-template-columns: repeat(3, 1fr); }
 }
 
 // ─── Shared block style (the rounded-rectangle boxes) ────────────────────────
@@ -288,7 +295,8 @@ a {
   .front-top {
     grid-template-columns: 1fr;
   }
-  .front-bottom {
+  .front-bottom,
+  .front-bottom--3 {
     grid-template-columns: repeat(2, 1fr);
   }
   .site-title {
