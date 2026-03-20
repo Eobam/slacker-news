@@ -14,4 +14,12 @@ stories:
   - welcome-to-slacker-news
   - set-your-own-manager
   - prometheus-distributed-care
-  - slack-readme  
+  - slack-readme
+
+changelog:
+  - change: Added RSS feed
+    date: "2026-03-18"
+    author: "@3kho"
+  - change: Site launched
+    date: "2026-03-09"
+    author: "@eps"

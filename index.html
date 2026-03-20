@@ -57,4 +57,20 @@ layout: default
     {% endfor %}
   </div><!-- /.front-bottom -->
 
+  <hr class="section-rule">
+
+  <div class="front-changelog">
+    <div class="front-block changelog-block">
+      <div class="section-label">CHANGELOG</div>
+      <hr class="block-rule">
+      {% for entry in site.data.frontpage.changelog %}
+      <div class="changelog-item">
+        <span class="changelog-change">{{ entry.change }}</span>
+        <span class="changelog-meta">{{ entry.date }} &middot; {{ entry.author }}</span>
+      </div>
+      {% unless forloop.last %}<hr class="changelog-divider">{% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+
 </div><!-- /.newspaper-front -->

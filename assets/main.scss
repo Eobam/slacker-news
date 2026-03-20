@@ -98,6 +98,12 @@ a {
   gap: 20px;
 }
 
+.section-rule {
+  border: none;
+  border-top: 2px solid #000;
+  margin: 0;
+}
+
 .front-top {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -219,6 +225,58 @@ a {
   }
 }
 
+// ─── Changelog block ──────────────────────────────────────────────────────────
+
+.front-changelog {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  .changelog-block {
+    &:hover { background: #fff; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-family: Georgia, serif;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .block-rule {
+      border: none;
+      border-top: 2px solid #000;
+      margin: 0 0 14px;
+    }
+  }
+}
+
+.changelog-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 4px 0;
+
+  .changelog-change {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.3;
+  }
+
+  .changelog-meta {
+    font-size: 0.82rem;
+    color: #555;
+    letter-spacing: 0.04em;
+  }
+}
+
+.changelog-divider {
+  border: none;
+  border-top: 1px solid #000;
+  margin: 12px 0;
+}
+
 // ─── Story (article) page ─────────────────────────────────────────────────────
 
 .story-page {
@@ -315,6 +373,9 @@ html.dark-mode {
   .front-bottom,
   .front-bottom--3 {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .front-changelog {
+    grid-template-columns: 1fr;
   }
   .site-title {
     font-size: 1.8rem;
