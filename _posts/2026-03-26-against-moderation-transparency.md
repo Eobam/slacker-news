@@ -10,9 +10,9 @@ Moderation transparency was introduced to me as a conflict between the Fire Depa
 I try to maintain your good will: avoid things that are unpopular, do things that are popular. Increasing moderation transparency is thus very tempting for me: it would be instantly popular. But I find myself stuck on the unpopular side because my conscience won’t let me take the popular side. What I want to argue to you today is that moderation transparency is actually unethical.
 
 By “moderation transparency” I mean any of the following:
-Logging more penalties (channelbans, MCG demotions, and warnings)
-Giving basic reasons for more penalties (as in “this is for spam”)
-Giving detailed reasons for more penalties (as in “here is a screenshot of the offending message”)
+- Logging more penalties (channelbans, MCG demotions, and warnings)
+- Giving basic reasons for more penalties (as in “this is for spam”)
+- Giving detailed reasons for more penalties (as in “here is a screenshot of the offending message”)
 
 **Public Shaming**
 
