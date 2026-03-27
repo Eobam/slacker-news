@@ -3,7 +3,7 @@ layout: story
 date: '2026-03-26 10:57:00'
 author: "@eps"
 category: opinion
-title: Aginst Moderation Transparency
+title: Against Moderation Transparency
 ---
 Moderation transparency was introduced to me as a conflict between the Fire Department and everyone else. But I’ve finally realized that this is really a conflict between the community and itself. The FD is simply caught in the middle.
 
