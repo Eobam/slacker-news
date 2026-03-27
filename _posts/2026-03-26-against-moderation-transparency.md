@@ -22,7 +22,7 @@ I have seen some heartbreaking bans. People who cared about Hack Club, acted as 
 
 Hack Clubbers are normally very good about privacy, so it’s jarring to see your privacy so devalued here. But separately, public shaming is inimical to the mission of helping people grow and learn from their mistakes.
 
-[Research shows](https://psycnet.apa.org/record/1996-01736-011) that shame and guilt are different emotions with different effects. Guilt is focused on a specific act and tends to cause growth and change. Shame targets a person’s whole self, is marked by a feeling of being exposed in front of a real or imagined audience, and tends to cause hostility and shifthing blame to others.
+[Research indicates](https://psycnet.apa.org/record/1996-01736-011) that shame and guilt are different emotions with different effects. Guilt is focused on a specific act and tends to cause growth and change. Shame targets a person’s whole self, is marked by a feeling of being exposed in front of a real or imagined audience, and tends to cause hostility and shifting blame to others.
 
 To learn from a mistake, you have to accept you made one. The harsher the criticism, the harder it is to accept. “You are a good person, but you showed bad judgement” is a line people will digest. Slowly, grudgingly, but they will. “You are a bad person which is why you did a bad thing” is much harder. Public humiliation puts people on the defensive by making them feel like they are being judged to be a bad person. Doubly so if they know the community is saying so outright. This encourages people to blame everyone else instead of looking within. 
 
