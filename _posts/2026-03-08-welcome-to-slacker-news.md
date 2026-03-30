@@ -1,7 +1,7 @@
 ---
 title: Welcome to Slacker News
 layout: story
-date: '2026-03-09'
+date: '2026-03-01'
 author: '@eps'
 category: news
 ---
