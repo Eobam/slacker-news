@@ -1,6 +1,6 @@
 ---
 layout: story
-date: '2026-03-26 10:57:00'
+date: '2026-04-01 10:57:00'
 author: "@Rowan"
 category: opinion
 title: More Power to Prometheus

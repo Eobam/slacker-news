@@ -1,6 +1,6 @@
 ---
 layout: story
-date: '2026-03-26 10:57:00'
+date: '2026-04-01 10:57:00'
 author: "@neven (hex4)"
 category: news
 title: Hack Club Introduces Mole
