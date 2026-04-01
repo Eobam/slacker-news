@@ -7,9 +7,7 @@ module SlackUserTag
   class Tag < Liquid::Tag
     def initialize(tag_name, markup, tokens)
       super
-      parts = markup.split(",", 2).map(&:strip)
-      @id   = parts[0]
-      @name = parts[1]
+      @id, @name = markup.split(",", 2).map(&:strip)
     end
 
     def render(_ctx) = %[<a href="#{SLACK_BASE_URL}/#{@id}" class="slack_user" target="_blank">@#{@name}</a>]
