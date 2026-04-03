@@ -7,7 +7,7 @@ title: Three Months at Hack Club
 ---
 I joined Hack Club full time on January 5th. That’s long enough to look back and take stock.
 
-I am charged with making this Slack an amazing place for teenagers. A place where you learn to take agency in your life, grow your technical skills, and make some of the closest friendships in your life. Zach gave me those goals. I added one more: that the Slack helps you become a better person.
+I am charged with making this Slack an amazing place for teenagers. A place where you learn to take agency, grow your technical skills, and make some of the closest friendships of your life. Zach gave me those goals. I added one more: that the Slack helps you become a better person.
 
 Two of my key measures are the number of monthly active users, and (of course) the Slack’s Net Promoter Score. NPS measures how much people like the Slack, and thus far I have been sampling new members. With 3 months of data, I can identify real trends. And they aren’t great. Membership is basically flat. NPS is falling. It dropped in January, held steady in February, and dropped again in March. It now stands at 35. There is a bright spot: I've started asking people how they joined, and the people who joined through slack.hackclub.com give the Slack an NPS of 50. So to everyone who contributed to the Slack site, and everyone who is staffing #welcome-to-hack-club: thank you. Your work matters.
 
@@ -21,7 +21,7 @@ That’s why this is a Slacker News post for all of you, and not just a note to 
 
 On the other hand, I’ll be looking for help to make these changes, so if you’re looking to get more involved, this is your moment.
 
-The Slack has an NPS of about 35 right now (among new users). In the universe of possible NPS scores, this is pretty good. But for a Hack Club project, this is quite low. YSWSes and Hackathons tend to get an NPS of 60-80. I’m not running a tax website, I’m running a community of awesome people with extraordinary talent. I know that a better version of this Slack exists, and it is worth taking risks to find it. 
+In the universe of possible NPS scores, 35 is pretty good. But for a Hack Club project, this is quite low. YSWSes and Hackathons tend to get an NPS of 60-80. I’m not running a tax website, I’m running a community of awesome people with extraordinary talent. I know that a better version of this Slack exists, and it is worth taking risks to find it. 
 
 I’m only beginning to think through my new strategy. But here are some things that are likely to arrive:
 - Abolishing the multi-channel guest step and making new users full members immediately.
