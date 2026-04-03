@@ -27,18 +27,16 @@
       var btn = document.getElementById('theme-toggle');
       if (!btn) return;
 
-      function syncColorScheme() {
+      function x() {
         document.documentElement.style.colorScheme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
         btn.textContent = document.documentElement.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
       }
 
-      syncColorScheme();
+      x();
 
-      btn.addEventListener('click', function(event) {
-        event.preventDefault();
+      btn.addEventListener('click', function() {
         document.documentElement.classList.toggle('dark-mode');
         localStorage.setItem('dark-mode', document.documentElement.classList.contains('dark-mode'));
-        syncColorScheme();
         x();
       });
     });
