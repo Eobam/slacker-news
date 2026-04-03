@@ -5,13 +5,13 @@ author: "@eps"
 category: opinion
 title: Three Months at Hack Club
 ---
-I joined Hack Club full time on January 5th. That’s been long enough to look back and say something meaningful.
+I joined Hack Club full time on January 5th. That’s long enough to look back and say something meaningful.
 
 I am charged with making this Slack an amazing place for teenagers. A place where you learn to take agency in your life, grow your technical skills, and make some of the closest friendships in your life. Zach gave me those goals. I added one more: that the Slack helps you become a better person.
 
-Two of my key measures are the number of monthly active users, and (of course) the Slack’s Net Promoter Score. NPS measures how much people like the Slack, and thus far I have been sampling new members. With 3 months of data, I can identify real trends. And they aren’t great. Membership is basically flat. NPS is falling. It dropped in January, held steady in February, and dropped again in March.
+Two of my key measures are the number of monthly active users, and (of course) the Slack’s Net Promoter Score. NPS measures how much people like the Slack, and thus far I have been sampling new members. With 3 months of data, I can identify real trends. And they aren’t great. Membership is basically flat. NPS is falling. It dropped in January, held steady in February, and dropped again in March. It now stands at 35. There is a bright spot: I've started asking people how they joined, and the people who joined through slack.hackclub.com give the Slack an NPS of 50. So to everyone who contributed to the Slack site, and everyone who is staffing #welcome-to-hack-club: thank you. Your work matters.
 
-I don’t think I’m making NPS worse. I think NPS is getting worse for other reasons, and my efforts have simply failed to make a difference.
+Overall, I don’t think I’m making NPS worse. Overall, I think NPS is getting worse for other reasons, and my efforts have simply failed to make enough of a difference.
 
 This isn’t a lament. It’s a reflection. At HQ we have clear guidance to try things, *expecting to fail*, and keep trying until we find what works. It’s a refreshing contrast with some of my previous employers, who were so risk-averse that I was explicitly forbidden from solving problems. It’s also the Hacker Mindset that we are always trying to get you to embrace: so what if you’re not sure you can make a game? Try anyway. Accept the risk of failure as necessary for the chance of success.
 
