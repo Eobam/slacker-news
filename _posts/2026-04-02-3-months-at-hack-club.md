@@ -24,8 +24,8 @@ On the other hand, I’ll be looking for help to make these changes, so if you�
 The Slack has an NPS of about 35 right now (among new users). In the universe of possible NPS scores, this is pretty good. But for a Hack Club project, this is quite low. YSWSes and Hackathons tend to get an NPS of 60-80. I’m not running a tax website, I’m running a community of awesome people with extraordinary talent. I know that a better version of this Slack exists, and it is worth taking risks to find it. 
 
 I’m only beginning to think through my new strategy. But here are some things that are likely to arrive:
-Abolishing the multi-channel guest step and making new users full members immediately.
-A YSWS-like system for key channels that gives channel owners a budget in proportion to how well the channel is doing. This will be invite-only to start.
-A lightweight automod. I know we did this as an April Fool’s joke, but a real one tuned to report only blatant slurs could give a modest improvement with minimal downside.
+- Abolishing the multi-channel guest step and making new users full members immediately.
+- A YSWS-like system for key channels that gives channel owners a budget in proportion to how well the channel is doing. This will be invite-only to start.
+- A lightweight automod. I know we did this as an April Fool’s joke, but a real one tuned to report only blatant slurs could give a modest improvement with minimal downside.
 
 The Slack is special, which makes it frightening to experiment on it–for me as well as for you. But it is *precisely because the Slack is special* that it deserves to be made as good as we can make it.
