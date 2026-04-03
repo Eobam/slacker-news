@@ -5,7 +5,7 @@ author: "@eps"
 category: opinion
 title: Three Months at Hack Club
 ---
-I joined Hack Club full time on January 5th. That’s long enough to look back and say something meaningful.
+I joined Hack Club full time on January 5th. That’s long enough to look back and take stock.
 
 I am charged with making this Slack an amazing place for teenagers. A place where you learn to take agency in your life, grow your technical skills, and make some of the closest friendships in your life. Zach gave me those goals. I added one more: that the Slack helps you become a better person.
 
