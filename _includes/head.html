@@ -2,15 +2,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   {%- seo -%}
   <link rel="icon" type="image/svg+xml" href="{{ "/SN H Logo.svg" | relative_url }}">
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   {%- feed_meta -%}
   <script>
     (function() {
-      if (localStorage.getItem('dark-mode') === 'true') {
+      var stored = localStorage.getItem('dark-mode');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (stored === 'true' || (stored === null && prefersDark)) {
         document.documentElement.classList.add('dark-mode');
       }
+
+      document.documentElement.style.colorScheme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
     })();
   </script>
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
@@ -20,10 +26,14 @@
     document.addEventListener('DOMContentLoaded', function() {
       var btn = document.getElementById('theme-toggle');
       if (!btn) return;
+
       function x() {
+        document.documentElement.style.colorScheme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
         btn.textContent = document.documentElement.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
       }
+
       x();
+
       btn.addEventListener('click', function() {
         document.documentElement.classList.toggle('dark-mode');
         localStorage.setItem('dark-mode', document.documentElement.classList.contains('dark-mode'));
