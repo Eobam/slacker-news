@@ -3,7 +3,7 @@ layout: story
 date: 2026-04-06
 author: "@eps"
 category: news
-title: Stardance: a NASA x Hack Club Experience
+title: Stardance - a NASA x Hack Club Experience
 ---
 You may have noticed us dropping NASA-related hints lately. This is not a coincidence. This summer, Hack Club and NASA are joining forces to bring you something new: Stardance.
 
