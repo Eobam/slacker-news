@@ -501,6 +501,14 @@ a:visited {
   cursor: pointer;
 }
 
+.js-only {
+  display: none;
+}
+
+html.js .js-only {
+  display: inline;
+}
+
 html.dark-mode {
   filter: invert(1) hue-rotate(180deg);
   background-color: #000;
@@ -512,6 +520,18 @@ html.dark-mode .site-title img {
   filter: none;
 }
 
+@media (prefers-color-scheme: dark) {
+  html:not(.light-mode):not(.dark-mode) {
+    filter: invert(1) hue-rotate(180deg);
+    background-color: #000;
+  }
+  html:not(.light-mode):not(.dark-mode) img, html:not(.light-mode):not(.dark-mode) svg, html:not(.light-mode):not(.dark-mode) video {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  html:not(.light-mode):not(.dark-mode) .site-title img {
+    filter: none;
+  }
+}
 .archive-page {
   max-width: 1248px;
   margin: 28px auto;

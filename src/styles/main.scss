@@ -361,6 +361,14 @@ a {
   cursor: pointer;
 }
 
+.js-only {
+  display: none;
+}
+
+html.js .js-only {
+  display: inline;
+}
+
 html.dark-mode {
   filter: invert(1) hue-rotate(180deg);
   background-color: #000;
@@ -371,6 +379,21 @@ html.dark-mode {
 
   .site-title img {
     filter: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light-mode):not(.dark-mode) {
+    filter: invert(1) hue-rotate(180deg);
+    background-color: #000;
+
+    img, svg, video {
+      filter: invert(1) hue-rotate(180deg);
+    }
+
+    .site-title img {
+      filter: none;
+    }
   }
 }
 

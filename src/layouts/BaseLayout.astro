@@ -12,7 +12,7 @@ const pageDescription = description ?? siteDescription;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,14 +22,33 @@ const pageDescription = description ?? siteDescription;
     <link rel="icon" type="image/svg+xml" href="/SN%20H%20Logo.svg" />
     <link rel="alternate" type="application/rss+xml" title={siteTitle} href="/feed.xml" />
     <link rel="stylesheet" href="/assets/main.css" />
+    <noscript>
+      <style>
+        .js-only {
+          display: none !important;
+        }
+      </style>
+    </noscript>
+    <script is:inline>
+      document.documentElement.classList.remove("no-js");
+    </script>
     <script is:inline>
       (function () {
+        document.documentElement.classList.add("js");
+
         var storedPreference = localStorage.getItem("dark-mode");
         var prefersDark =
           typeof window.matchMedia === "function" &&
           window.matchMedia("(prefers-color-scheme: dark)").matches;
 
+        if (storedPreference === "false") {
+          document.documentElement.classList.remove("dark-mode");
+          document.documentElement.classList.add("light-mode");
+          return;
+        }
+
         if (storedPreference === "true" || (storedPreference === null && prefersDark)) {
+          document.documentElement.classList.remove("light-mode");
           document.documentElement.classList.add("dark-mode");
         }
       })();
@@ -44,7 +63,9 @@ const pageDescription = description ?? siteDescription;
         updateThemeButtonLabel();
         btn.addEventListener("click", function () {
           document.documentElement.classList.toggle("dark-mode");
-          localStorage.setItem("dark-mode", document.documentElement.classList.contains("dark-mode"));
+          var isDark = document.documentElement.classList.contains("dark-mode");
+          document.documentElement.classList.toggle("light-mode", !isDark);
+          localStorage.setItem("dark-mode", isDark);
           updateThemeButtonLabel();
         });
       });
@@ -111,8 +132,8 @@ const pageDescription = description ?? siteDescription;
             <a class="page-link" href="https://hackclub.com">Hack Club</a>
             <span class="nav-pip">|</span>
             <a class="page-link" href="/feed.xml">RSS</a>
-            <span class="nav-pip">|</span>
-            <a class="page-link theme-toggle" id="theme-toggle" role="button" href="#">Dark Mode</a>
+            <span class="nav-pip js-only">|</span>
+            <a class="page-link theme-toggle js-only" id="theme-toggle" role="button" href="#">Dark Mode</a>
           </div>
         </nav>
       </div>
