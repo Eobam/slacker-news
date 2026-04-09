@@ -3,7 +3,7 @@ title: Three Futures for this Slack
 layout: story
 date: '2026-03-09'
 author: '@eps'
-category: opinion
+category: essays
 ---
 
 I’ve been changing the Slack, and more changes are coming, so it’s time I explained my agenda.

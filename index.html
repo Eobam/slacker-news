@@ -97,6 +97,37 @@ layout: default
 
   <a href="{{ '/news/' | relative_url }}" class="news-archive-link">All news &rarr;</a>
 
+  {% assign all_essays = site.posts | where: "category", "essays" %}
+  {% assign display_essays = "" | split: "" %}
+  {% for post in all_essays %}
+    {% if display_essays.size < 4 %}
+      {% assign display_essays = display_essays | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if display_essays.size > 0 %}
+  <hr class="section-rule">
+
+  <div class="front-essays">
+    {% for post in display_essays %}
+    <a href="{{ post.url | relative_url }}" class="front-block story-block essay-block">
+      <h3 class="story-block-title">{{ post.title }}</h3>
+      <div class="essay-block-excerpts">
+        {% assign paras = post.content | split: '</p>' %}
+        {% for p in paras limit:4 %}
+          {% assign stripped = p | strip_html | strip %}
+          {% if stripped != '' %}
+            <p class="block-excerpt">{{ stripped }}</p>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </a>
+    {% endfor %}
+  </div><!-- /.front-bottom (essays) -->
+
+  <a href="{{ '/essays/' | relative_url }}" class="news-archive-link">All essays &rarr;</a>
+  {% endif %}
+
   <hr class="section-rule">
 
   <div class="front-changelog">
@@ -112,6 +143,17 @@ layout: default
       {% endfor %}
       {% if recent_changelog.size > 0 %}<hr class="changelog-divider">{% endif %}
       <a href="{{ '/changelogs/' | relative_url }}" class="archive-link">All changelogs &rarr;</a>
+    </div>
+
+    <div class="front-block acknowledgements-block">
+      <div class="section-label">ACKNOWLEDGEMENTS</div>
+      <hr class="block-rule">
+      <div class="acknowledgements-grid">
+        {% for person in site.data.acknowledgements_frontpage %}
+        <span class="acknowledgement-name">{{ person.name }}</span>
+        {% endfor %}
+      </div>
+      <a href="{{ '/acknowledgements/' | relative_url }}" class="archive-link">All acknowledgements &rarr;</a>
     </div>
   </div>
 

@@ -224,6 +224,7 @@ a {
 // ─── Bottom story blocks ──────────────────────────────────────────────────────
 
 .story-block {
+  min-height: 200px;
   .story-block-title {
     font-size: 0.95rem;
     font-weight: bold;
@@ -235,6 +236,38 @@ a {
     color: #444;
     margin: 0;
     line-height: 1.5;
+  }
+}
+
+// ─── Essay blocks ─────────────────────────────────────────────────────────
+
+.front-essays {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.essay-block.essay-block {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+
+  .essay-block-excerpts {
+    flex: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+    overflow: hidden;
+
+    .block-excerpt {
+      font-size: 0.82rem;
+      color: #444;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .block-excerpt + .block-excerpt {
+      margin-top: 0.6em;
+    }
   }
 }
 
@@ -288,6 +321,51 @@ a {
   border: none;
   border-top: 1px solid #000;
   margin: 12px 0;
+}
+
+// ─── Acknowledgements block ──────────────────────────────────────────────────
+
+.acknowledgements-block {
+  &:hover { background: #fff; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-family: Georgia, serif;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 6px;
+  }
+
+  .block-rule {
+    border: none;
+    border-top: 2px solid #000;
+    margin: 0 0 14px;
+  }
+}
+
+.acknowledgements-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 20px;
+  margin-bottom: 14px;
+
+  .acknowledgement-name {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+}
+
+.acknowledgements-full-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px 20px;
+
+  .acknowledgement-name {
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
 }
 
 // ─── Story (article) page ─────────────────────────────────────────────────────
