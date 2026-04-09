@@ -1,13 +1,11 @@
-FROM ruby:3.4.4 AS builder
-RUN apt-get update -qq && apt-get install -y build-essential nodejs
-WORKDIR /srv/jekyll
-COPY Gemfile Gemfile.lock ./
-RUN gem install bundler:2.3.7 && bundle install
+FROM node:22-alpine AS builder
+WORKDIR /app
+COPY package.json ./
+RUN npm install
 COPY . .
-RUN chown 1000:1000 -R /srv/jekyll
-RUN bundle exec jekyll build -d /srv/jekyll/_site
+RUN npm run build
 
 FROM nginx:alpine
-COPY --from=builder /srv/jekyll/_site /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

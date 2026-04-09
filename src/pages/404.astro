@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPageHtml, getSiteConfig } from "../lib/content";
+
+const site = getSiteConfig();
+const page = getPageHtml("404.html");
+---
+
+<BaseLayout siteTitle={site.title} siteDescription={site.description}>
+  <Fragment set:html={page.html} />
+</BaseLayout>

@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getChangelogEntries, getSiteConfig } from "../../lib/content";
+
+const site = getSiteConfig();
+const changelogEntries = getChangelogEntries();
+---
+
+<BaseLayout title="Changelogs Archive" siteTitle={site.title} siteDescription={site.description}>
+  <div class="archive-page">
+    <div class="section-label">CHANGELOG</div>
+    <hr class="section-rule" />
+    <div class="archive-list">
+      {changelogEntries.map((entry) => (
+        <div class="front-block story-block">
+          <h3 class="story-block-title">{entry.change}</h3>
+          <p class="story-block-excerpt">
+            {entry.date} &middot; {entry.author}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

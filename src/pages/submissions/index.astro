@@ -1,0 +1,14 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import { getPageMarkdown, getSiteConfig } from "../../lib/content";
+
+const site = getSiteConfig();
+const page = getPageMarkdown("submission-guidelines.md");
+---
+
+<PageLayout
+  pageTitle={page.title ?? "Submission Guidelines"}
+  html={page.html}
+  siteTitle={site.title}
+  siteDescription={site.description}
+/>
