@@ -41,6 +41,10 @@ export type ChangelogEntry = {
     author: string;
 };
 
+export type Acknowledgement = {
+    name: string;
+};
+
 type FrontpageData = {
     headline?: string[];
     opinion?: string[];
@@ -173,6 +177,10 @@ export function getFrontpageData(): FrontpageData {
 
 export function getChangelogEntries(): ChangelogEntry[] {
     return parseYamlFile<ChangelogEntry[]>(path.join(DATA_DIR, "changelog.yml"));
+}
+
+export function getAcknowledgements(): Acknowledgement[] {
+    return parseYamlFile<Acknowledgement[]>(path.join(DATA_DIR, "acknowledgements_frontpage.yml"));
 }
 
 export function getRecentChangelogEntries(days: number): ChangelogEntry[] {
