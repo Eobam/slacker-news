@@ -1,9 +1,9 @@
 import rss from "@astrojs/rss";
 import { getPosts, getSiteConfig } from "../lib/content";
 
-export function GET(context) {
-    const site = getSiteConfig();
-    const posts = getPosts();
+export async function GET(context) {
+    const site = await getSiteConfig();
+    const posts = await getPosts();
 
     return rss({
         title: site.title,
@@ -13,8 +13,7 @@ export function GET(context) {
             title: post.title,
             description: post.excerpt,
             pubDate: post.date,
-            link: post.url,
-            content: post.html
+            link: post.url
         }))
     });
 }

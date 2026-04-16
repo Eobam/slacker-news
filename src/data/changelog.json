@@ -1,0 +1,17 @@
+[
+  {
+    "change": "Astrofication: moved content to Astro collections and MDX",
+    "date": "2026-04-15",
+    "author": "@matmanna"
+  },
+  {
+    "change": "Added RSS feed",
+    "date": "2026-03-18",
+    "author": "@3kho"
+  },
+  {
+    "change": "Site launched",
+    "date": "2026-03-09",
+    "author": "@eps"
+  }
+]

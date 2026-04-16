@@ -5,18 +5,15 @@
   "type": "module",
   "packageManager": "bun@1.2.9",
   "scripts": {
-    "styles": "sass src/styles/main.scss public/assets/main.css --no-source-map",
-    "dev": "bun run styles && astro dev",
-    "build": "bun run styles && astro build",
-    "preview": "bun run styles && astro preview",
-    "test": "node --test"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.0.5",
     "@astrojs/rss": "^4.0.11",
-    "astro": "^5.5.5",
-    "gray-matter": "^4.0.3",
-    "js-yaml": "^4.1.0",
-    "markdown-it": "^14.1.0"
+    "astro": "^5.5.5"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

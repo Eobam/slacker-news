@@ -6,6 +6,8 @@ interface Props {
   siteDescription: string;
 }
 
+import "../styles/main.scss";
+
 const { title, description, siteTitle, siteDescription } = Astro.props;
 const pageTitle = title && title !== siteTitle ? `${title} | ${siteTitle}` : siteTitle;
 const pageDescription = description ?? siteDescription;
@@ -21,7 +23,6 @@ const pageDescription = description ?? siteDescription;
     <meta name="description" content={pageDescription} />
     <link rel="icon" type="image/svg+xml" href="/SN%20H%20Logo.svg" />
     <link rel="alternate" type="application/rss+xml" title={siteTitle} href="/feed.xml" />
-    <link rel="stylesheet" href="/assets/main.css" />
     <noscript>
       <style>
         .js-only {

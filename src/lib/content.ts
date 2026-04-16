@@ -1,22 +1,8 @@
-import fs from "node:fs";
-import path from "node:path";
-import matter from "gray-matter";
-import yaml from "js-yaml";
-import MarkdownIt from "markdown-it";
-
-const ROOT = process.cwd();
-const CONTENT_DIR = path.join(ROOT, "src", "site");
-const POSTS_DIR = path.join(CONTENT_DIR, "posts");
-const DATA_DIR = path.join(CONTENT_DIR, "data");
-const PAGES_DIR = path.join(CONTENT_DIR, "pages");
-
-const markdown = new MarkdownIt({
-    html: true,
-    linkify: true,
-    typographer: false
-});
-
-type MaybeString = string | undefined;
+import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import siteData from "../data/site.json";
+import frontpageData from "../data/frontpage.json";
+import changelogData from "../data/changelog.json";
+import acknowledgementsData from "../data/acknowledgements_frontpage.json";
 
 export type SiteConfig = {
     title: string;
@@ -30,9 +16,9 @@ export type Post = {
     author?: string;
     category?: string;
     date: Date;
-    html: string;
     excerpt: string;
     paragraphs: string[];
+    entry: CollectionEntry<"posts">;
 };
 
 export type ChangelogEntry = {
@@ -50,22 +36,8 @@ type FrontpageData = {
     opinion?: string[];
 };
 
-const CHANNEL_REGEX = /##([\w-]+)|\B#([\w-]+)/g;
-
-function readText(filePath: string): string {
-    try {
-        return fs.readFileSync(filePath, "utf8");
-    } catch (error) {
-        throw new Error(`Failed to read content file ${filePath}: ${error instanceof Error ? error.message : String(error)}`);
-    }
-}
-
 function normalizeWhitespace(input: string): string {
     return input.replace(/\s+/g, " ").trim();
-}
-
-function stripHtml(input: string): string {
-    return normalizeWhitespace(input.replace(/<[^>]*>/g, " "));
 }
 
 function truncateWords(input: string, count: number): string {
@@ -77,125 +49,102 @@ function truncateWords(input: string, count: number): string {
     return `${words.slice(0, count).join(" ")}...`;
 }
 
-function replaceSlackUserTags(markdownSource: string): string {
-    return markdownSource.replace(/\{%\s*slack_user\s+([^%]+?)\s*%\}/g, (_match, markup) => {
-        const rawMarkup = String(markup).trim();
-        const lastComma = rawMarkup.lastIndexOf(",");
-        if (lastComma === -1) {
-            return _match;
-        }
-
-        const cleanName = rawMarkup.slice(0, lastComma).trim();
-        const cleanId = rawMarkup.slice(lastComma + 1).trim();
-        if (!cleanName || !cleanId) {
-            return _match;
-        }
-
-        return `<a href="https://hackclub.slack.com/team/${cleanId}" class="slack_user" target="_blank">@${cleanName}</a>`;
-    });
+function replaceSlackMentionComponents(input: string): string {
+    return input.replace(/<SlackMention\s+name="([^"]+)"\s+id="([^"]+)"\s*\/?>/g, (_match, name) => `@${name}`);
 }
 
-function linkSlackChannels(html: string): string {
-    return html.replace(/>([^<]+)</g, (_match, textContent) => {
-        const linkedText = String(textContent).replace(CHANNEL_REGEX, (_inner, escaped, channel) => {
-            if (escaped) {
-                return `#${escaped}`;
-            }
-
-            return `<a href="https://hackclub.slack.com/archives/${channel}" class="slack_channel" target="_blank">#${channel}</a>`;
-        });
-
-        return `>${linkedText}<`;
-    });
+function replaceSlackChannelComponents(input: string): string {
+    return input.replace(/<SlackChannel\s+id="([^"]+)"\s*\/?>/g, (_match, id) => `#${id}`);
 }
 
-function renderMarkdown(input: string): string {
-    const withSlackUsers = replaceSlackUserTags(input);
-    const rendered = markdown.render(withSlackUsers);
-
-    return linkSlackChannels(rendered);
+function stripMarkdown(input: string): string {
+    return normalizeWhitespace(
+        replaceSlackChannelComponents(replaceSlackMentionComponents(input))
+            .replace(/^import\s.+$/gm, "")
+            .replace(/^export\s.+$/gm, "")
+            .replace(/^#{1,6}\s+/gm, "")
+            .replace(/^\s*[-*+]\s+/gm, "")
+            .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, "$1")
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+            .replace(/`([^`]+)`/g, "$1")
+            .replace(/\*\*([^*]+)\*\*/g, "$1")
+            .replace(/\*([^*]+)\*/g, "$1")
+            .replace(/_{1,2}([^_]+)_{1,2}/g, "$1")
+            .replace(/<[^>]+>/g, " ")
+    );
 }
 
-function inferDateFromFilename(filename: string): Date {
-    const datePart = filename.slice(0, 10);
-
-    return new Date(`${datePart}T00:00:00Z`);
+function extractBlocks(body: string): string[] {
+    return body
+        .replace(/^import\s.+$/gm, "")
+        .replace(/^export\s.+$/gm, "")
+        .split(/\n{2,}/)
+        .map((block) => stripMarkdown(block))
+        .filter(Boolean);
 }
 
-function inferSlugFromFilename(filename: string): string {
-    return filename.replace(/^\d{4}-\d{2}-\d{2}-/, "").replace(/\.md$/, "");
+function toExcerpt(entry: { body: string; data: { excerpt?: string } }): string {
+    const explicitExcerpt = entry.data.excerpt;
+    const source = explicitExcerpt ?? extractBlocks(entry.body)[0] ?? "";
+
+    return stripMarkdown(source);
 }
 
-function extractParagraphs(html: string): string[] {
-    const matches = html.match(/<p>[\s\S]*?<\/p>/g) ?? [];
-    return matches.map((paragraph) => stripHtml(paragraph)).filter(Boolean);
-}
-
-function parseYamlFile<T>(filePath: string): T {
-    try {
-        return yaml.load(readText(filePath)) as T;
-    } catch (error) {
-        throw new Error(`Failed to parse YAML file ${filePath}: ${error instanceof Error ? error.message : String(error)}`);
+async function requireEntry(collection: string, slug: string) {
+    const entry = await getEntry(collection, slug);
+    if (!entry) {
+        throw new Error(`Missing required content entry ${collection}/${slug}`);
     }
+
+    return entry;
 }
 
-export function getSiteConfig(): SiteConfig {
-    const raw = parseYamlFile<Record<string, MaybeString>>(path.join(CONTENT_DIR, "site.yml"));
-
+export async function getSiteConfig(): Promise<SiteConfig> {
     return {
-        title: raw.title ?? "Slacker News",
-        description: raw.description ?? "Official news from Hack Club Slack."
+        title: siteData.title,
+        description: siteData.description
     };
 }
 
-export function getPosts(): Post[] {
-    const filenames: string[] = fs.readdirSync(POSTS_DIR).filter((name: string) => name.endsWith(".md"));
+export async function getPosts(): Promise<Post[]> {
+    const posts = await getCollection("posts");
 
-    const posts: Post[] = filenames.map((filename: string) => {
-        const filePath = path.join(POSTS_DIR, filename);
-        const raw = readText(filePath);
-        const parsed = matter(raw);
-        const html = renderMarkdown(parsed.content);
-        const paragraphs = extractParagraphs(html);
+    return posts
+        .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+        .map((entry) => {
+            const paragraphs = extractBlocks(entry.body);
 
-        const date = parsed.data.date ? new Date(String(parsed.data.date)) : inferDateFromFilename(filename);
-        const slug = String(parsed.data.slug ?? inferSlugFromFilename(filename));
-        const explicitExcerpt = parsed.data.excerpt ? String(parsed.data.excerpt) : undefined;
-        const excerptSource = explicitExcerpt ?? paragraphs[0] ?? "";
-
-        return {
-            slug,
-            url: `/${slug}/`,
-            title: String(parsed.data.title ?? slug),
-            author: parsed.data.author ? String(parsed.data.author) : undefined,
-            category: parsed.data.category ? String(parsed.data.category) : undefined,
-            date,
-            html,
-            excerpt: stripHtml(excerptSource),
-            paragraphs
-        } satisfies Post;
-    });
-
-    return posts.sort((a: Post, b: Post) => b.date.getTime() - a.date.getTime());
+            return {
+                slug: entry.slug,
+                url: `/${entry.slug}/`,
+                title: entry.data.title,
+                author: entry.data.author,
+                category: entry.data.category,
+                date: entry.data.date,
+                excerpt: toExcerpt(entry),
+                paragraphs,
+                entry
+            } satisfies Post;
+        });
 }
 
-export function getFrontpageData(): FrontpageData {
-    return parseYamlFile<FrontpageData>(path.join(DATA_DIR, "frontpage.yml"));
+export async function getFrontpageData(): Promise<FrontpageData> {
+    return frontpageData;
 }
 
-export function getChangelogEntries(): ChangelogEntry[] {
-    return parseYamlFile<ChangelogEntry[]>(path.join(DATA_DIR, "changelog.yml"));
+export async function getChangelogEntries(): Promise<ChangelogEntry[]> {
+    return changelogData;
 }
 
-export function getAcknowledgements(): Acknowledgement[] {
-    return parseYamlFile<Acknowledgement[]>(path.join(DATA_DIR, "acknowledgements_frontpage.yml"));
+export async function getAcknowledgements(): Promise<Acknowledgement[]> {
+    return acknowledgementsData;
 }
 
-export function getRecentChangelogEntries(days: number): ChangelogEntry[] {
+export async function getRecentChangelogEntries(days: number): Promise<ChangelogEntry[]> {
     const nowTimestamp = Date.now();
     const threshold = nowTimestamp - days * 24 * 60 * 60 * 1000;
 
-    return getChangelogEntries().filter((entry) => new Date(`${entry.date}T00:00:00Z`).getTime() >= threshold);
+    return (await getChangelogEntries()).filter((entry) => new Date(`${entry.date}T00:00:00Z`).getTime() >= threshold);
 }
 
 export function formatStoryDate(date: Date): string {
@@ -206,22 +155,8 @@ export function formatStoryDate(date: Date): string {
     }).format(date);
 }
 
-export function getPageMarkdown(filePath: string): { title?: string; html: string } {
-    const parsed = matter(readText(path.join(PAGES_DIR, filePath)));
-
-    return {
-        title: parsed.data.title ? String(parsed.data.title) : undefined,
-        html: renderMarkdown(parsed.content)
-    };
-}
-
-export function getPageHtml(filePath: string): { title?: string; html: string } {
-    const parsed = matter(readText(path.join(PAGES_DIR, filePath)));
-
-    return {
-        title: parsed.data.title ? String(parsed.data.title) : undefined,
-        html: parsed.content
-    };
+export async function getPageEntry(slug: string): Promise<CollectionEntry<"pages">> {
+    return requireEntry("pages", slug);
 }
 
 export { truncateWords };

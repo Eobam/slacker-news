@@ -27,15 +27,9 @@ bun run dev
 
 The site will be available at `http://localhost:3000` by default. Changes to content files, components, and styles rebuild automatically.
 
-### Styling
+Styles are authored in `src/styles/main.scss` and bundled by Astro.
 
-Styles are compiled from SCSS to CSS before each build:
-
-```bash
-bun run styles
-```
-
-This is automatically run by `dev` and `build` commands.
+Posts live in `src/content/posts/` as MDX files. Slack user mentions use the shared `SlackMention` component inside post bodies.
 
 ## Building for Production
 
@@ -57,56 +51,68 @@ bun run preview
 
 ```
 src/
-├── components/          # Reusable Astro components
+├── components/         # Shared Astro components
+├── content/            # Astro content collections
+│   ├── pages/          # About and submissions pages
+│   └── posts/          # MDX articles
+├── data/               # Site/frontpage/changelog/acknowledgements JSON data
 ├── layouts/            # Page layouts (BaseLayout, PageLayout)
 ├── lib/                # Utilities (content loading, site config)
 ├── pages/              # Routes and pages
-│   ├── [slug].astro   # Dynamic post routes
-│   ├── index.astro    # Homepage
-│   ├── feed.xml.js    # RSS feed endpoint
-│   └── ...            # Section pages
-├── site/              # Content data
-│   ├── site.yml       # Site configuration
-│   ├── data/          # YAML data files (frontpage, changelog, etc.)
-│   └── posts/         # Markdown posts
-└── styles/            # SCSS stylesheets
+│   ├── [slug].astro    # Dynamic post routes
+│   ├── index.astro     # Homepage
+│   ├── feed.xml.js     # RSS feed endpoint
+│   └── ...             # Section pages
+└── styles/             # SCSS stylesheets
 
-public/               # Static assets
+public/                 # Static assets
 ```
 
 ## Adding Content
 
 ### Posts
 
-Create new posts in `src/site/posts/` with the naming format: `YYYY-MM-DD-slug.md`
+Create new posts in `src/content/posts/` with the naming format: `slug.mdx`
 
 ```markdown
 ---
 title: Post Title
-excerpt: Brief description shown in listings
 date: 2026-04-15
+excerpt: Brief description shown in listings
 ---
 
 Post content in Markdown format goes here.
 ```
 
-### Site Data
+To mention a Slack user in a post, import and use the shared component:
 
-Site configuration and frontpage data live in `src/site/`:
-- **site.yml** — Site title, description, and metadata
-- **data/frontpage.yml** — Pinned posts and sections on homepage
-- **data/changelog.yml** — Changelog entries
-- **data/acknowledgements_frontpage.yml** — Featured contributors
+```mdx
+import SlackMention from "../../components/SlackMention.astro";
 
-## Testing
-
-Run the test suite:
-
-```bash
-bun run test
+<SlackMention name="eps" id="U09Q8MLTE58" />
 ```
 
-Tests verify the RSS feed generation and critical build paths.
+### Site Data
+
+Site configuration and frontpage data live in `src/data/` JSON files:
+- **src/data/site.json** — Site title and description
+- **src/data/frontpage.json** — Pinned posts and sections on homepage
+- **src/data/changelog.json** — Changelog entries
+- **src/data/acknowledgements_frontpage.json** — Featured contributors
+
+Slack channel references are explicit. Use `SlackChannel` in MDX when you want a linked channel mention:
+
+```mdx
+import SlackChannel from "../../components/SlackChannel.astro";
+
+<SlackChannel id="confessions" />
+```
+
+Run Astro checks:
+
+```bash
+bun run check
+```
 
 ## Deployment
 
@@ -114,15 +120,17 @@ The project includes a `Dockerfile` for containerized deployment. Build and run 
 
 ```bash
 docker build -t slacker-news .
-docker run -p 3000:3000 slacker-news
+docker run -p 8080:80 slacker-news
 ```
 
 The container uses Bun for all build and runtime operations and serves the static production build.
 
+The container listens on port 80, so map it to whatever host port you want, for example `8080:80`.
+
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) or open an issue to discuss changes.
+Open an issue or pull request to discuss changes.
 
 ## License
 
-[MIT](LICENSE) – See the repository for details.
+MIT

@@ -2,15 +2,16 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { formatStoryDate, getPosts, getSiteConfig } from "../lib/content";
 
-export function getStaticPaths() {
-  return getPosts().map((post) => ({
+export async function getStaticPaths() {
+  return (await getPosts()).map((post) => ({
     params: { slug: post.slug },
     props: { post }
   }));
 }
 
-const site = getSiteConfig();
+const site = await getSiteConfig();
 const { post } = Astro.props;
+const { Content } = await post.entry.render();
 ---
 
 <BaseLayout title={post.title} siteTitle={site.title} siteDescription={site.description}>
@@ -26,7 +27,9 @@ const { post } = Astro.props;
       <hr class="story-rule" />
     </header>
 
-    <div class="story-body" set:html={post.html} />
+    <div class="story-body">
+      <Content />
+    </div>
 
     <footer class="story-footer">
       <a href="/">&larr; Back to front page</a>

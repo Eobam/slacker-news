@@ -9,9 +9,9 @@ import {
   truncateWords
 } from "../lib/content";
 
-const site = getSiteConfig();
-const posts = getPosts();
-const frontpage = getFrontpageData();
+const site = await getSiteConfig();
+const posts = await getPosts();
+const frontpage = await getFrontpageData();
 
 const headlineSlug = frontpage.headline?.[0];
 const headline = posts.find((post) => post.slug === headlineSlug);
@@ -38,8 +38,8 @@ const displayNews = allNews.filter((post) => post.slug !== headlineSlug).slice(0
 const allEssays = posts.filter((post) => post.category === "essays");
 const displayEssays = allEssays.slice(0, 4);
 
-const recentChangelog = getRecentChangelogEntries(30);
-const acknowledgements = getAcknowledgements();
+const recentChangelog = await getRecentChangelogEntries(30);
+const acknowledgements = await getAcknowledgements();
 ---
 
 <BaseLayout siteTitle={site.title} siteDescription={site.description}>
