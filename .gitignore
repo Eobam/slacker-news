@@ -6,3 +6,7 @@ _site
 .jekyll-cache
 *.report.html
 .tmp-**.mjs
+.desloppify/
+scorecard.png
+.agents/
+review-import.json
