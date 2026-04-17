@@ -94,11 +94,7 @@ const acknowledgements = await getAcknowledgements();
           {displayEssays.map((post) => (
             <a href={post.url} class="front-block story-block essay-block">
               <h3 class="story-block-title">{post.title}</h3>
-              <div class="essay-block-excerpts">
-                {post.paragraphs.slice(0, 4).map((paragraph) => (
-                  <p class="block-excerpt">{paragraph}</p>
-                ))}
-              </div>
+              <p class="story-block-excerpt">{truncateWords(post.excerpt, 18)}</p>
             </a>
           ))}
         </div>

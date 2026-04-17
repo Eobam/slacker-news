@@ -304,32 +304,20 @@ a {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+
+  @media screen and (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .essay-block {
   &:hover { background: #fff; }
 }
 
-.essay-block-excerpts {
-  margin-top: 8px;
-
-  .block-excerpt {
-    font-size: 0.92rem;
-    line-height: 1.45;
-    color: #444;
-    margin: 0;
-  }
-
-  .block-excerpt + .block-excerpt {
-    margin-top: 0.65em;
-  }
-}
-
 // ─── Acknowledgements block ──────────────────────────────────────────────────
 
 .acknowledgements-block {
   &:hover { background: #fff; }
-
   .section-label {
     font-size: 0.75rem;
     font-family: Georgia, serif;
